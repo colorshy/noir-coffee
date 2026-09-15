@@ -1,0 +1,314 @@
+:root {
+  /* NOIR Creative Color System */
+  --ink: #f1eee6;
+  --muted: #a49a8f;
+  --espresso: #171310;
+  --paper: #e8e0d3;
+  --coffee: #281812;
+  --copper: #9c6747;
+  --copper-light: #c28863;
+  --line: rgba(241, 238, 230, 0.12);
+  --line-strong: rgba(241, 238, 230, 0.28);
+  --surface: rgba(23, 19, 16, 0.85);
+  --surface-card: #1f1915;
+  --surface-border: rgba(156, 103, 71, 0.2);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing & Layout */
+  --site-max-width: 1560px;
+  --header-height: 84px;
+
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--espresso);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--espresso);
+  color: var(--ink);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Film Grain Texture Overlay for Editorial Depth */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--copper-light);
+}
+
+p {
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 350;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease, opacity 0.25s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Strip default browser focus outline & click rings */
+button:focus,
+a:focus,
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus,
+[role="button"]:focus:not(:focus-visible),
+[role="button"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Prevent stuck active outlines or gray flashes on click */
+button:active,
+a:active,
+[role="button"]:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Ensure icons never capture residual focus rings, borders, or gray boxes */
+button svg,
+a svg,
+svg,
+svg:focus,
+svg:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  pointer-events: none;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Editorial Micro-Elements */
+.badge-caps {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper-light);
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--copper);
+}
+
+/* Smooth Container Layouts */
+.site-container {
+  max-width: var(--site-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 5vw, 4rem);
+  padding-right: clamp(1.25rem, 5vw, 4rem);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--espresso);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #33251e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--copper);
+}
+
+/* Continuous Marquee Animation */
+@keyframes marqueeScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-duration: 90s;
+  }
+}
+
+/* Delicate Pulse */
+@keyframes delicatePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #55a868;
+  box-shadow: 0 0 8px rgba(85, 168, 104, 0.6);
+  animation: delicatePulse 2.5s infinite ease-in-out;
+}
+
+/* User Experience & Selection Polish */
+::selection {
+  background-color: var(--copper);
+  color: #171310;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 1px solid var(--copper-light);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .announcement-center {
+    display: none !important;
+  }
+}
+
+/* Chocolate slab organic floating feathering & soft edge masking */
+.chocolate-image {
+  mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
+}
+
+/* Hero Cinematic Ambient Coffee Pour Background */
+.coffee-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Sanctuary Ambient Swirl Video & Scrim */
+.sanctuary-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.sanctuary-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 11, 8, 0.6);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
