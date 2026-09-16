@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assets';
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 
@@ -228,7 +229,7 @@ export const ChocolateSection = ({ onExplorePairings }: ChocolateSectionProps) =
           autoPlay
           loop
           muted
-          playsInline
+          playsInline poster={assetUrl('/images/chocolate-molten.jpg')}
           style={{
             width: '100%',
             height: '100%',
@@ -237,7 +238,7 @@ export const ChocolateSection = ({ onExplorePairings }: ChocolateSectionProps) =
             filter: 'contrast(1.15) brightness(0.92)',
           }}
         >
-          <source src="/videos/espresso-chocolate-swirl.mp4" type="video/mp4" />
+          <source src={assetUrl('/videos/espresso-chocolate-swirl.mp4')} type="video/mp4" />
         </video>
 
         {/* Soft Vignettes so the video melts seamlessly into the #171310 edges */}
@@ -570,8 +571,8 @@ export const ChocolateSection = ({ onExplorePairings }: ChocolateSectionProps) =
                     position: 'absolute',
                     inset: 0,
                     zIndex: 1,
-                    maskImage: "url('/images/chocolate-bar-floating.png')",
-                    WebkitMaskImage: "url('/images/chocolate-bar-floating.png')",
+                    maskImage: `url('${assetUrl('/images/chocolate-bar-floating.png')}')`,
+                    WebkitMaskImage: `url('${assetUrl('/images/chocolate-bar-floating.png')}')`,
                     maskSize: 'contain',
                     WebkitMaskSize: 'contain',
                     maskRepeat: 'no-repeat',
@@ -701,7 +702,7 @@ export const ChocolateSection = ({ onExplorePairings }: ChocolateSectionProps) =
                     position: 'absolute',
                     inset: 0,
                     zIndex: 2,
-                    backgroundImage: "url('/images/chocolate-bar-floating.png')",
+                    backgroundImage: `url('${assetUrl('/images/chocolate-bar-floating.png')}')`,
                     backgroundSize: 'contain',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',

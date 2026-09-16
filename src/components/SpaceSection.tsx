@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assets';
 import { useState, useRef } from 'react';
 
 interface SpaceSectionProps {
@@ -88,9 +89,9 @@ export const SpaceSection = ({ onOpenReserve }: SpaceSectionProps) => {
           pointerEvents: 'none',
           opacity: 0.35,
         }}
-      >
-        <source src="/videos/espresso-swirl.mp4" type="video/mp4" />
-        <source src="/videos/espresso-chocolate-swirl.mp4" type="video/mp4" />
+       poster={assetUrl('/images/space-interior.jpg')}>
+        <source src={assetUrl('/videos/espresso-swirl.mp4')} type="video/mp4" />
+        <source src={assetUrl('/videos/espresso-chocolate-swirl.mp4')} type="video/mp4" />
       </video>
 
       {/* Ambient Dark Overlay Layer for 100% Crisp Legibility */}
@@ -210,7 +211,7 @@ export const SpaceSection = ({ onOpenReserve }: SpaceSectionProps) => {
             }}
           >
             <img
-              src="/images/space-interior.jpg"
+              src={assetUrl('/images/space-interior.jpg')}
               alt="NOIR Flagship coffee sanctuary interior with dark oak wood paneling, warm copper espresso bar, and gentle morning sunlight"
               loading="lazy"
               style={{

@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assets';
 import { useState } from 'react';
 import { X, ShoppingBag, Plus, Minus, Trash2, CheckCircle2 } from 'lucide-react';
 
@@ -24,7 +25,7 @@ export const CartDrawer = ({ isOpen, onClose, onExploreMenu }: CartDrawerProps) 
       category: 'Atelier Chocolate',
       price: 14,
       quantity: 2,
-      image: '/images/chocolate-bar.jpg',
+      image: assetUrl('/images/chocolate-bar.jpg'),
     },
     {
       id: 'item-2',
@@ -32,7 +33,7 @@ export const CartDrawer = ({ isOpen, onClose, onExploreMenu }: CartDrawerProps) 
       category: 'Fresh Roasted Beans',
       price: 18,
       quantity: 1,
-      image: '/images/roastery-craft.jpg',
+      image: assetUrl('/images/roastery-craft.jpg'),
     },
   ]);
 
@@ -195,7 +196,7 @@ export const CartDrawer = ({ isOpen, onClose, onExploreMenu }: CartDrawerProps) 
                   }}
                 >
                   <img
-                    src={item.image}
+                    src={assetUrl(item.image)}
                     alt={item.name}
                     style={{
                       width: '68px',

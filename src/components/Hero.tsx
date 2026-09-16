@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assets';
 import { useRef } from 'react';
 import { ReactiveNavLink } from './ReactiveNavLink';
 
@@ -119,6 +120,7 @@ export const Hero = ({
         loop
         muted
         playsInline
+        poster={assetUrl('/images/hero-pour.jpg')}
         className="coffee-bg"
         style={{
           position: 'absolute',
@@ -130,9 +132,8 @@ export const Hero = ({
           zIndex: 1,
         }}
       >
-        <source src="/videos/coffee-pour.webm" type="video/webm" />
-        <source src="/videos/coffee-pour.mp4" type="video/mp4" />
-        <source src="/videos/hero-coffee-pour.mp4" type="video/mp4" />
+        <source src={assetUrl('/videos/coffee-pour.mp4')} type="video/mp4" />
+        <source src={assetUrl('/videos/hero-coffee-pour.mp4')} type="video/mp4" />
       </video>
 
       {/* Subtle Atmospheric Scrim & Vignette for Editorial Depth & Readability */}

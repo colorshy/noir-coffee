@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assets';
 import { useState, useRef, useEffect, useCallback } from 'react';
 
 interface SpecItem {
@@ -194,7 +195,7 @@ export const StorySection = () => {
             filter: 'contrast(1.12) brightness(1.02)',
           }}
         >
-          <source src="/videos/espresso-milk-blend.mp4" type="video/mp4" />
+          <source src={assetUrl('/videos/espresso-milk-blend.mp4')} type="video/mp4" />
         </video>
       </div>
 
@@ -368,7 +369,7 @@ export const StorySection = () => {
             >
               {/* Inner Parallax Image: Smoothly translated inversely to cursor */}
               <img
-                src="/images/roastery-craft.jpg"
+                src={assetUrl('/images/roastery-craft.jpg')}
                 alt="Artisanal roaster evaluating freshly roasted specialty coffee beans with copper cupping spoon on dark timber table"
                 loading="lazy"
                 style={{

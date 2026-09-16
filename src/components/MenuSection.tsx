@@ -1,3 +1,4 @@
+import { assetUrl } from '../utils/assets';
 import { useRef, useState, useEffect, useMemo } from 'react';
 import { motion, useScroll, useTransform, useSpring, MotionValue, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight, Sparkles } from 'lucide-react';
@@ -82,7 +83,7 @@ const MENU_ITEMS: MenuItem[] = [
     title: 'NOIR 85% ARTISANAL CHOCOLATE',
     price: '$14',
     shortDescription: 'Stone-conched Madagascar dark chocolate slab with wild berry acidity.',
-    image: '/images/chocolate-bar.jpg',
+    image: assetUrl('/images/chocolate-bar.jpg'),
     details: {
       origin: 'Sambirano Valley, Northern Madagascar',
       elevation: 'Sea level to 400m micro-climate',
@@ -136,7 +137,7 @@ const MENU_ITEMS: MenuItem[] = [
     title: 'DOUBLE-SHOT OBSIDIAN ESPRESSO',
     price: '$5.5',
     shortDescription: 'Lever-extracted Ethiopian Sidama micro-lot with dense, tiger-striped crema.',
-    image: '/images/roastery-craft.jpg',
+    image: assetUrl('/images/roastery-craft.jpg'),
     details: {
       origin: 'Sidama Bensa Micro-Lot #84, Ethiopia',
       elevation: '2,200m',
@@ -274,7 +275,7 @@ const EditorialMenuCard = ({
         }}
       >
         <img
-          src={item.image}
+          src={assetUrl(item.image)}
           alt={item.title}
           loading="lazy"
           style={{
@@ -555,7 +556,7 @@ export const MenuSection = () => {
               opacity: 0.24,
             }}
           >
-            <source src="/videos/espresso-milk-blend.mp4" type="video/mp4" />
+            <source src={assetUrl('/videos/espresso-milk-blend.mp4')} type="video/mp4" />
           </video>
           {/* Subtle cream blend layer on top of the video */}
           <div
@@ -894,7 +895,7 @@ export const MenuSection = () => {
                 }}
               >
                 <img
-                  src={selectedItemForDetails.image}
+                  src={assetUrl(selectedItemForDetails.image)}
                   alt={selectedItemForDetails.title}
                   style={{
                     width: '100%',
