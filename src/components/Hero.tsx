@@ -120,7 +120,6 @@ export const Hero = ({
         loop
         muted
         playsInline
-        poster={assetUrl('/images/hero-pour.jpg')}
         className="coffee-bg"
         style={{
           position: 'absolute',
